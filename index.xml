@@ -49,7 +49,9 @@ git clone https://github.com/vaga/hugo-theme-m10c.git themes/m10c  4.</descripti
       <pubDate>Wed, 27 Nov 2019 14:56:31 +0800</pubDate>
       
       <guid>https://tangg9646.github.io/post/blog/</guid>
-      <description>1.KNN 分类算法 由于knn算法涉及到距离的概念，KNN 算法需要先进行归一化处理
+      <description>本文整理了入门python机器学习最基本的算法，可作为手册使用
+梳理了python代码，方便快速从这个手册中构建出相应的代码应用于自己的项目中
+1.KNN 分类算法 由于knn算法涉及到距离的概念，KNN 算法需要先进行归一化处理
 1.1 归一化处理 scaler from sklearn.preprocessing import StandardScaler standardScaler =StandardScaler() standardScaler.fit(X_train) X_train_standard = standardScaler.transform(X_train) X_test_standard = standardScaler.transform(X_test)  归一化之后送入模型进行训练
 from sklearn.neighbors import KNeighborsClassifier knn_clf = KNeighborsClassifier(n_neighbors=8) knn_classifier.fit(X_train_standard, y_train) y_predict = knn_clf.predict(X_test_standard) # 默认的预测指标为分类准确度 knn_clf.score(X_test, y_test)  1.2 网格搜索 GridSearchCV 使用网格搜索来确定KNN算法合适的超参数
 from sklearn.model_selection import GridSearchCV param_grid = [ { &#39;weights&#39;:[&#39;uniform&#39;], &#39;n_neighbors&#39;:[ i for i in range(1, 11)] }, { &#39;weights&#39;:[&#39;distance&#39;], &#39;n_neighbors&#39;:[i for i in range(1, 11)], &#39;p&#39;:[p for p in range(1, 6)] } ] grid_search = GridSearchCV(knn_clf, param_grid, n_jobs=-1, verbose=2) grid_search.</description>
