@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>机器学习经典算法--代码整理</title>
+      <title>2.机器学习经典算法--代码整理</title>
       <link>https://tangg9646.github.io/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95-%E4%BB%A3%E7%A0%81%E6%95%B4%E7%90%86/</link>
       <pubDate>Wed, 27 Nov 2019 19:33:29 +0800</pubDate>
       
@@ -26,7 +26,7 @@ from sklearn.model_selection import GridSearchCV param_grid = [ { &#39;weights&#
     </item>
     
     <item>
-      <title>搭建hugo个人博客</title>
+      <title>1.搭建hugo个人博客</title>
       <link>https://tangg9646.github.io/post/%E6%90%AD%E5%BB%BAhugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Wed, 27 Nov 2019 17:58:59 +0800</pubDate>
       
@@ -55,20 +55,6 @@ hugo new sie C:/User/TG/tgblog  执行完命名后即可在对应目录下找到
 使用命令行进入创建的tgbolg文件夹
 cd C:/User/TG/tgblog  将选定好的主题，通过git命名下载到theme文件夹
 git clone https://github.com/vaga/hugo-theme-m10c.git themes/m10c  4.</description>
-    </item>
-    
-    <item>
-      <title>机器学习的经典算法-代码整理</title>
-      <link>https://tangg9646.github.io/post/blog/</link>
-      <pubDate>Wed, 27 Nov 2019 14:56:31 +0800</pubDate>
-      
-      <guid>https://tangg9646.github.io/post/blog/</guid>
-      <description>本文整理了入门python机器学习最基本的算法，可作为手册使用
-梳理了python代码，方便快速从这个手册中构建出相应的代码应用于自己的项目中
-1.KNN 分类算法 由于knn算法涉及到距离的概念，KNN 算法需要先进行归一化处理
-1.1 归一化处理 scaler from sklearn.preprocessing import StandardScaler standardScaler =StandardScaler() standardScaler.fit(X_train) X_train_standard = standardScaler.transform(X_train) X_test_standard = standardScaler.transform(X_test)  归一化之后送入模型进行训练
-from sklearn.neighbors import KNeighborsClassifier knn_clf = KNeighborsClassifier(n_neighbors=8) knn_classifier.fit(X_train_standard, y_train) y_predict = knn_clf.predict(X_test_standard) # 默认的预测指标为分类准确度 knn_clf.score(X_test, y_test)  1.2 网格搜索 GridSearchCV 使用网格搜索来确定KNN算法合适的超参数
-from sklearn.model_selection import GridSearchCV param_grid = [ { &#39;weights&#39;:[&#39;uniform&#39;], &#39;n_neighbors&#39;:[ i for i in range(1, 11)] }, { &#39;weights&#39;:[&#39;distance&#39;], &#39;n_neighbors&#39;:[i for i in range(1, 11)], &#39;p&#39;:[p for p in range(1, 6)] } ] grid_search = GridSearchCV(knn_clf, param_grid, n_jobs=-1, verbose=2) grid_search.</description>
     </item>
     
   </channel>
