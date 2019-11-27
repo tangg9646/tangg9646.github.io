@@ -6,10 +6,42 @@
     <description>Recent content in Posts on 唐广的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 27 Nov 2019 14:56:31 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 27 Nov 2019 17:58:59 +0800</lastBuildDate>
     
 	<atom:link href="https://tangg9646.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>搭建hugo个人博客</title>
+      <link>https://tangg9646.github.io/post/%E6%90%AD%E5%BB%BAhugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Wed, 27 Nov 2019 17:58:59 +0800</pubDate>
+      
+      <guid>https://tangg9646.github.io/post/%E6%90%AD%E5%BB%BAhugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
+      <description>本内容整理于哔哩哔哩up主，CodeSheep
+连接如下：手把手教你从0开始搭建自己的个人博客 |第二种姿势 | hugo
+分享给想要搭建个人博客的朋友。
+1. 常用框架 hexo 静态的 js 博客
+jekyllrb 静态
+hugo 基于go语言
+官网：gohugo.org
+vuepress 网址：vuepress.vuejs.org
+solo 网址：solo.org
+2. hugo博客搭建 本示例是在Windows平台下搭建。
+过程中出现其他问题可以查看：
+https://www.gohugo.org hugo中文文档
+1. 安装hugo工具  安装Windows安装管理工具 scoop
+ 安装完scoop之后，直接运行命名
+scoop install hugo下载博客主题  注意观察hugo的安装目录
+  需要已经下载安装好Git到自己的电脑上
+并且已经申请注册了github账号，可以创建自己的仓库
+推荐把git版本管理工具的基本操作学习一下：廖雪峰Git教程
+2. 在本地创建博客目录 使用Hugo快速生成站点，比如希望生成到 C:/Uesr/TG 路径：
+hugo new sie C:/User/TG/tgblog  执行完命名后即可在对应目录下找到该文件夹
+3. 下载hugo主题 网址为： huogo-themes
+使用命令行进入创建的tgbolg文件夹
+cd C:/User/TG/tgblog  将选定好的主题，通过git命名下载到theme文件夹
+git clone https://github.com/vaga/hugo-theme-m10c.git themes/m10c  4.</description>
+    </item>
     
     <item>
       <title>机器学习的经典算法总结</title>
