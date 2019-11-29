@@ -6,10 +6,24 @@
     <description>Recent content in Posts on 唐广的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 27 Nov 2019 19:33:29 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 29 Nov 2019 10:25:31 +0800</lastBuildDate>
     
 	<atom:link href="https://tangg9646.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>玩卷积神经网络</title>
+      <link>https://tangg9646.github.io/post/%E7%8E%A9%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</link>
+      <pubDate>Fri, 29 Nov 2019 10:25:31 +0800</pubDate>
+      
+      <guid>https://tangg9646.github.io/post/%E7%8E%A9%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</guid>
+      <description> 有趣的卷积神经网络，手写数字识别，交互式的可视化网站 最近在看B站看到关于神经网络的讲解视频，up主：同济子豪兄
+连接如下：三分钟走进卷积神经网络
+更详细的讲解卷积神经网络的系列视频：https://www.bilibili.com/video/av77378145
+视频中提到的网站为：http://www.scs.ryerson.ca/~aharley/vis/conv/
+网站可视化中的神经网络架构为：
+ 6个卷积核的卷积层 池化层 16个卷积核的卷积层 池化层 密集连接层 密集连接层（softmax激活函数输出10个分类）  </description>
+    </item>
     
     <item>
       <title>2.机器学习经典算法--代码整理</title>
