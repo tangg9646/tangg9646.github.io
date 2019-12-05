@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on 唐广的个人博客</title>
-    <link>http://example.org/post/</link>
+    <link>https://tangg9646.github.io/post/</link>
     <description>Recent content in Posts on 唐广的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 05 Dec 2019 15:37:45 +0800</lastBuildDate>
     
-	<atom:link href="http://example.org/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://tangg9646.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>朴素贝叶斯算法&#43;文本分类&#43;垃圾邮件过滤应用</title>
-      <link>http://example.org/post/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%AE%97%E6%B3%95&#43;%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB&#43;%E5%9E%83%E5%9C%BE%E9%82%AE%E4%BB%B6%E8%BF%87%E6%BB%A4%E5%BA%94%E7%94%A8/</link>
+      <link>https://tangg9646.github.io/post/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%AE%97%E6%B3%95&#43;%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB&#43;%E5%9E%83%E5%9C%BE%E9%82%AE%E4%BB%B6%E8%BF%87%E6%BB%A4%E5%BA%94%E7%94%A8/</link>
       <pubDate>Thu, 05 Dec 2019 15:37:45 +0800</pubDate>
       
-      <guid>http://example.org/post/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%AE%97%E6%B3%95&#43;%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB&#43;%E5%9E%83%E5%9C%BE%E9%82%AE%E4%BB%B6%E8%BF%87%E6%BB%A4%E5%BA%94%E7%94%A8/</guid>
+      <guid>https://tangg9646.github.io/post/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%AE%97%E6%B3%95&#43;%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB&#43;%E5%9E%83%E5%9C%BE%E9%82%AE%E4%BB%B6%E8%BF%87%E6%BB%A4%E5%BA%94%E7%94%A8/</guid>
       <description>[TOC]
 一、朴素贝叶斯基础理论 这部分内容转载自：https://www.kesci.com/home/project/5cededa67a818c002b6ec64a
 博主讲得很清晰，并介绍了scikit-learn中封装的库如何调用
@@ -53,10 +53,10 @@ Naive Bayes（朴素贝叶斯）技术的理论依据是贝叶斯定理（Bayes�
     
     <item>
       <title>将github配置为图床&#43;PicGo配置</title>
-      <link>http://example.org/post/%E5%B0%86github%E9%85%8D%E7%BD%AE%E4%B8%BA%E5%9B%BE%E5%BA%8A&#43;picgo%E9%85%8D%E7%BD%AE/</link>
+      <link>https://tangg9646.github.io/post/%E5%B0%86github%E9%85%8D%E7%BD%AE%E4%B8%BA%E5%9B%BE%E5%BA%8A&#43;picgo%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Wed, 04 Dec 2019 23:23:09 +0800</pubDate>
       
-      <guid>http://example.org/post/%E5%B0%86github%E9%85%8D%E7%BD%AE%E4%B8%BA%E5%9B%BE%E5%BA%8A&#43;picgo%E9%85%8D%E7%BD%AE/</guid>
+      <guid>https://tangg9646.github.io/post/%E5%B0%86github%E9%85%8D%E7%BD%AE%E4%B8%BA%E5%9B%BE%E5%BA%8A&#43;picgo%E9%85%8D%E7%BD%AE/</guid>
       <description>将github配置为图床+PicGo配置 1、建一个git仓库 用于存需要上传的图片。这个仓库最好是public的，因为private的仓库，图片链接会带token，这个token又存在过期的问题。
 2、获取授权token 在Github的Developer setting界面生一个token。记得保存，因为它只会显示一次。
 3、配置PicGo picgo下载地址：https://molunerfinn.com/PicGo/
@@ -66,10 +66,10 @@ Naive Bayes（朴素贝叶斯）技术的理论依据是贝叶斯定理（Bayes�
     
     <item>
       <title>正则表达式基础</title>
-      <link>http://example.org/post/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%9F%BA%E7%A1%80/</link>
+      <link>https://tangg9646.github.io/post/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Mon, 02 Dec 2019 09:11:25 +0800</pubDate>
       
-      <guid>http://example.org/post/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%9F%BA%E7%A1%80/</guid>
+      <guid>https://tangg9646.github.io/post/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%9F%BA%E7%A1%80/</guid>
       <description>本文转载自：
 https://www.cnblogs.com/huxi/archive/2010/07/04/1771073.html
 1. 正则表达式基础 1.1. 简单介绍 正则表达式并不是Python的一部分。正则表达式是用于处理字符串的强大工具，拥有自己独特的语法以及一个独立的处理引擎，效率上可能不如str自带的方法，但功能十分强大。得益于这一点，在提供了正则表达式的语言里，正则表达式的语法都是一样的，区别只在于不同的编程语言实现支持的语法数量不同；但不用担心，不被支持的语法通常是不常用的部分。如果已经在其他语言里使用过正则表达式，只需要简单看一看就可以上手了。
@@ -89,10 +89,10 @@ Python里的原生字符串很好地解决了这个问题，这个例子中的�
     
     <item>
       <title>3.玩卷积神经网络</title>
-      <link>http://example.org/post/%E7%8E%A9%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</link>
+      <link>https://tangg9646.github.io/post/%E7%8E%A9%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</link>
       <pubDate>Fri, 29 Nov 2019 10:25:31 +0800</pubDate>
       
-      <guid>http://example.org/post/%E7%8E%A9%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</guid>
+      <guid>https://tangg9646.github.io/post/%E7%8E%A9%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</guid>
       <description> 有趣的卷积神经网络，手写数字识别，交互式的可视化网站 最近在看B站看到关于神经网络的讲解视频，up主：同济子豪兄
 连接如下：三分钟走进卷积神经网络
 更详细的讲解卷积神经网络的系列视频：https://www.bilibili.com/video/av77378145
@@ -103,10 +103,10 @@ Python里的原生字符串很好地解决了这个问题，这个例子中的�
     
     <item>
       <title>2.机器学习经典算法--代码整理</title>
-      <link>http://example.org/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95-%E4%BB%A3%E7%A0%81%E6%95%B4%E7%90%86/</link>
+      <link>https://tangg9646.github.io/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95-%E4%BB%A3%E7%A0%81%E6%95%B4%E7%90%86/</link>
       <pubDate>Wed, 27 Nov 2019 19:33:29 +0800</pubDate>
       
-      <guid>http://example.org/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95-%E4%BB%A3%E7%A0%81%E6%95%B4%E7%90%86/</guid>
+      <guid>https://tangg9646.github.io/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95-%E4%BB%A3%E7%A0%81%E6%95%B4%E7%90%86/</guid>
       <description>本文整理了入门python机器学习最基本的算法，可作为手册使用
 梳理了python代码，方便快速从这个手册中构建出相应的代码应用于自己的项目中
 1.KNN 分类算法 由于knn算法涉及到距离的概念，KNN 算法需要先进行归一化处理
@@ -117,10 +117,10 @@ from sklearn.model_selection import GridSearchCV param_grid = [ { &#39;weights&#
     
     <item>
       <title>1.搭建hugo个人博客</title>
-      <link>http://example.org/post/%E6%90%AD%E5%BB%BAhugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
+      <link>https://tangg9646.github.io/post/%E6%90%AD%E5%BB%BAhugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Wed, 27 Nov 2019 17:58:59 +0800</pubDate>
       
-      <guid>http://example.org/post/%E6%90%AD%E5%BB%BAhugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
+      <guid>https://tangg9646.github.io/post/%E6%90%AD%E5%BB%BAhugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
       <description>本内容整理于哔哩哔哩up主，CodeSheep
 连接如下：手把手教你从0开始搭建自己的个人博客 |第二种姿势 | hugo
 分享给想要搭建个人博客的朋友。
