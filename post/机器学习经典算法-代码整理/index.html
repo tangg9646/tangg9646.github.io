@@ -14,6 +14,7 @@
 <meta name="twitter:title" content="2.机器学习经典算法--代码整理"/>
 <meta name="twitter:description" content="本文整理了入门python机器学习最基本的算法，可作为手册使用
 梳理了python代码，方便快速从这个手册中构建出相应的代码应用于自己的项目中
+[TOC]
 1.KNN 分类算法 由于knn算法涉及到距离的概念，KNN 算法需要先进行归一化处理
 1.1 归一化处理 scaler from sklearn.preprocessing import StandardScaler standardScaler =StandardScaler() standardScaler.fit(X_train) X_train_standard = standardScaler.transform(X_train) X_test_standard = standardScaler.transform(X_test)  归一化之后送入模型进行训练
 from sklearn.neighbors import KNeighborsClassifier knn_clf = KNeighborsClassifier(n_neighbors=8) knn_classifier.fit(X_train_standard, y_train) y_predict = knn_clf.predict(X_test_standard) # 默认的预测指标为分类准确度 knn_clf.score(X_test, y_test)  1.2 网格搜索 GridSearchCV 使用网格搜索来确定KNN算法合适的超参数
@@ -22,6 +23,7 @@ from sklearn.model_selection import GridSearchCV param_grid = [ { &#39;weights&#
     <meta property="og:title" content="2.机器学习经典算法--代码整理" />
 <meta property="og:description" content="本文整理了入门python机器学习最基本的算法，可作为手册使用
 梳理了python代码，方便快速从这个手册中构建出相应的代码应用于自己的项目中
+[TOC]
 1.KNN 分类算法 由于knn算法涉及到距离的概念，KNN 算法需要先进行归一化处理
 1.1 归一化处理 scaler from sklearn.preprocessing import StandardScaler standardScaler =StandardScaler() standardScaler.fit(X_train) X_train_standard = standardScaler.transform(X_train) X_test_standard = standardScaler.transform(X_test)  归一化之后送入模型进行训练
 from sklearn.neighbors import KNeighborsClassifier knn_clf = KNeighborsClassifier(n_neighbors=8) knn_classifier.fit(X_train_standard, y_train) y_predict = knn_clf.predict(X_test_standard) # 默认的预测指标为分类准确度 knn_clf.score(X_test, y_test)  1.2 网格搜索 GridSearchCV 使用网格搜索来确定KNN算法合适的超参数
@@ -65,7 +67,7 @@ from sklearn.model_selection import GridSearchCV param_grid = [ { &#39;weights&#
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          8 min read
+          9 min read
         </div></div>
     </header>
     <div class="post-content">
@@ -74,6 +76,8 @@ from sklearn.model_selection import GridSearchCV param_grid = [ { &#39;weights&#
 <p>本文整理了入门python机器学习最基本的算法，可作为手册使用</p>
 
 <p>梳理了python代码，方便快速从这个手册中构建出相应的代码应用于自己的项目中</p>
+
+<p>[TOC]</p>
 
 <h1 id="1-knn-分类算法">1.KNN 分类算法</h1>
 
@@ -143,6 +147,24 @@ knn_clf.score(X_test_standard, y_test)
 cross_val_score(knn_clf, X_train, y_train, cv=5)
 </code></pre></li>
 </ul>
+
+<p>这里默认的scoring标准为 <strong>accuracy</strong></p>
+
+<p>有许多可选的参数，具体查看<a href="https://scikit-learn.org/stable/modules/model_evaluation.html#scoring-parameter">官方文档</a></p>
+
+<ul>
+<li>封装成函数，在fit完模型之后，一次性查看多个评价指标的成绩</li>
+</ul>
+
+<p>这里选的只是针对分类算法的指标，也可以是针对回归，聚类算法的评价指标</p>
+
+<pre><code class="language-python">def cv_score_train_test(model):
+    num_cv = 5
+    score_list = [&quot;accuracy&quot;,&quot;f1&quot;, &quot;neg_log_loss&quot;, &quot;roc_auc&quot;]
+    for score in score_list:
+        print(score,&quot;\t train:&quot;,cross_val_score(model, X_train, y_train, cv=num_cv, scoring=score).mean())
+        print(score,&quot;\t test:&quot;,cross_val_score(model, X_test, y_test, cv=num_cv, scoring=score).mean())
+</code></pre>
 
 <hr />
 
@@ -1049,6 +1071,10 @@ plt.show()
 <p>精准率、召回率</p>
 </blockquote>
 
+<p>对于二分类问题，常用的指标是 f1 roc_auc</p>
+
+<p>多分类问题，可用的指标为 f1_weighted</p>
+
 <h3 id="1-分类准确度">1.分类准确度</h3>
 
 <p>一般用于<strong>平衡分类问题（每个类比的可能性相同）</strong></p>
@@ -1220,6 +1246,18 @@ roc_auc_score(y_test, decision_scores)
 </code></pre>
 
 <p>曲线下方的面积可用于比较两个模型的好坏</p>
+
+<p>总之，上面提到的decision_score 是一个概率值，如0 1 二分类问题，应该是将每个样本预测为1的概率，</p>
+
+<p>如某个样本的y_test为1，y_predict_probablity为0.875</p>
+
+<p>每个测试样本对应一个预测的概率值</p>
+
+<p>通常在模型fit完成之后，都会有相应的得到概率的函数，如</p>
+
+<p><strong>model.predict_prob(X_test)</strong></p>
+
+<p><strong>model.decision_function(X_test)</strong></p>
 
 <h2 id="二-回归算法">二、回归算法</h2>
 

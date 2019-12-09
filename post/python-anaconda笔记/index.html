@@ -1,0 +1,913 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title> // 唐广的个人博客</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="TG" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://tangg9646.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="anaconda笔记  查看notebook运行在哪个python下
+import sys print(sys.executable)   python笔记 1. pickle保存数据 import pickle a_dict = { &quot;da&quot;:123, 2:[12,55,69,8], &quot;25&quot;:{1:2, &quot;dd&quot;:&quot;of&quot;}} # 保存数据 with open(&quot;pickle_example.pickle&quot;, &#39;wb&#39;) as file: pickle.dump(a_dict, file) # 读取数据 with open(&quot;pickle_example.pickle&quot;, &#39;rb&#39;) as file: a_dict2 = pickle.load(file) print(a_dict2)  2. python 的tkinter窗口 python的内置图形化窗口（GUI）
+代码的复现文件夹为
+Win_Linux_Share/GUI窗口
+实例：计算NH3-H2流量 这个例子包括了：标签、按钮、输入框、选择框
+标签：Label
+按钮：Radiobutton
+输入框：Entry
+选择框：Button
+import tkinter as tk from tkinter import messagebox # import this to fix messagebox error import pickle window = tk."/>
+
+    <meta property="og:title" content="" />
+<meta property="og:description" content="anaconda笔记  查看notebook运行在哪个python下
+import sys print(sys.executable)   python笔记 1. pickle保存数据 import pickle a_dict = { &quot;da&quot;:123, 2:[12,55,69,8], &quot;25&quot;:{1:2, &quot;dd&quot;:&quot;of&quot;}} # 保存数据 with open(&quot;pickle_example.pickle&quot;, &#39;wb&#39;) as file: pickle.dump(a_dict, file) # 读取数据 with open(&quot;pickle_example.pickle&quot;, &#39;rb&#39;) as file: a_dict2 = pickle.load(file) print(a_dict2)  2. python 的tkinter窗口 python的内置图形化窗口（GUI）
+代码的复现文件夹为
+Win_Linux_Share/GUI窗口
+实例：计算NH3-H2流量 这个例子包括了：标签、按钮、输入框、选择框
+标签：Label
+按钮：Radiobutton
+输入框：Entry
+选择框：Button
+import tkinter as tk from tkinter import messagebox # import this to fix messagebox error import pickle window = tk." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tangg9646.github.io/post/python-anaconda%E7%AC%94%E8%AE%B0/" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://tangg9646.github.io/"><img class="app-header-avatar" src="https://upload-images.jianshu.io/upload_images/19168686-5c06ac3debe107b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="TG" /></a>
+      <h1>唐广的个人博客</h1>
+      <p>尝试用hugo平台构建我的个人博客，用于记录学习笔记以及自己的想法</p>
+      <div class="app-header-social">
+        
+          <a target="_blank" href="https://github.com/tangg9646" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-link">
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+</svg></a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title"></h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jan 1, 0001
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          7 min read
+        </div></div>
+    </header>
+    <div class="post-content">
+      
+
+<h1 id="anaconda笔记">anaconda笔记</h1>
+
+<ul>
+<li><p>查看notebook运行在哪个python下</p>
+
+<pre><code class="language-python">import sys
+print(sys.executable)
+</code></pre></li>
+</ul>
+
+<h1 id="python笔记">python笔记</h1>
+
+<h2 id="1-pickle保存数据">1. pickle保存数据</h2>
+
+<pre><code class="language-python">import pickle
+
+a_dict = {
+    &quot;da&quot;:123,
+    2:[12,55,69,8],
+    &quot;25&quot;:{1:2, &quot;dd&quot;:&quot;of&quot;}}
+
+# 保存数据
+with open(&quot;pickle_example.pickle&quot;, 'wb') as file:
+    pickle.dump(a_dict, file)
+   
+# 读取数据
+
+with open(&quot;pickle_example.pickle&quot;, 'rb') as file:
+    a_dict2 = pickle.load(file)
+    
+print(a_dict2)
+</code></pre>
+
+<h2 id="2-python-的tkinter窗口">2. python 的tkinter窗口</h2>
+
+<p>python的内置图形化窗口（GUI）</p>
+
+<p>代码的复现文件夹为</p>
+
+<p><strong>Win_Linux_Share/GUI窗口</strong></p>
+
+<h3 id="实例-计算nh3-h2流量">实例：计算NH3-H2流量</h3>
+
+<p>这个例子包括了：<strong>标签、按钮、输入框、选择框</strong></p>
+
+<p>标签：Label</p>
+
+<p>按钮：Radiobutton</p>
+
+<p>输入框：Entry</p>
+
+<p>选择框：Button</p>
+
+<pre><code class="language-python">
+import tkinter as tk
+from tkinter import messagebox  # import this to fix messagebox error
+import pickle
+
+window = tk.Tk()
+window.title('氢氨流量计算')
+window.geometry('550x300')
+
+tk.Label(window, text='当量比（fuel:air）').place(x=10, y= 10)
+var_equivalent = tk.StringVar()
+var_equivalent.set('1.0')
+entry_equivalent = tk.Entry(window, textvariable=var_equivalent, width=12)
+entry_equivalent.place(x=10+5, y=30+5)
+
+tk.Label(window, text='燃料H2比例（%）').place(x=150, y= 10)
+var_mix_ratio = tk.StringVar()
+var_mix_ratio.set('50')
+entry_mix_ratio = tk.Entry(window, textvariable=var_mix_ratio, width=12)
+entry_mix_ratio.place(x=150+5, y=30+5)
+
+position_flow_x = 10
+position_flow_y = 100
+position_flow_Label_to_Entry_y = 25
+position_flow_Label_to_Entry_x = 5
+position_flow_next_gas_derta = 60
+
+tk.Label(window, text='空气流量（ml/min）').place(x=position_flow_x, y= position_flow_y)
+var_air_flow = tk.StringVar()
+var_air_flow.set('2000')
+entry_air_flow = tk.Entry(window, textvariable=var_air_flow, width=12, background='#F1F1B8')
+entry_air_flow.place(x=position_flow_x + position_flow_Label_to_Entry_x, \
+                     y=position_flow_y+position_flow_Label_to_Entry_y)
+
+tk.Label(window, text='NH3流量（ml/min）').place(x=position_flow_x, \
+                                             y= position_flow_y+position_flow_next_gas_derta)
+var_nh3_flow = tk.StringVar()
+var_nh3_flow.set('186.67')
+entry_nh3_flow = tk.Entry(window, textvariable=var_nh3_flow, width=12, background='#F1F1B8')
+entry_nh3_flow.place(x=position_flow_x+position_flow_Label_to_Entry_x, \
+                     y=position_flow_y+position_flow_next_gas_derta+position_flow_Label_to_Entry_y)
+
+tk.Label(window, text='H2流量（ml/min）').place(x=position_flow_x, \
+                                            y= position_flow_y + 2*position_flow_next_gas_derta)
+var_h2_flow = tk.StringVar()
+var_h2_flow.set('373.33')
+entry_h2_flow = tk.Entry(window, textvariable=var_h2_flow, width=12, background='#F1F1B8')
+entry_h2_flow.place(x=position_flow_x+position_flow_Label_to_Entry_x, \
+                    y=position_flow_y + 2*position_flow_next_gas_derta+position_flow_Label_to_Entry_y)
+
+tk.Label(window, text='总流量（ml/min）').place(x=160, y= 100)
+var_all_flow = tk.StringVar()
+var_all_flow.set('2560')
+entry_all_flow = tk.Entry(window, textvariable=var_all_flow, width=12, background='#88FFFF')
+entry_all_flow.place(x=160, y=100+25)
+
+tk.Label(window, text='平均流速（cm/s）').place(x=160, y= 180)
+var_flow_speed = tk.StringVar()
+var_flow_speed.set('30.25')
+entry_flow_speed = tk.Entry(window, textvariable=var_flow_speed, width=12, background='#88FFFF')
+entry_flow_speed.place(x=160, y=180+25)
+
+#计算方式选择坐标指定
+select_loc_x = 300
+select_loc_y = 50
+y_derta = 30
+
+tk.Label(window, text='求解方式选择', font=('Times news', 15), bg='#CCCCCC', padx=10, pady=10).place(x=select_loc_x, y= select_loc_y-40)
+var_selected = tk.StringVar()
+
+r1 = tk.Radiobutton(window, text='给定 当量比、H2占比、Air流量',
+                    variable=var_selected, value='1')
+r1.place(x=select_loc_x, y=select_loc_y)
+
+r2 = tk.Radiobutton(window, text='给定 当量比、H2占比、NH3流量',
+                    variable=var_selected, value='2')
+r2.place(x=select_loc_x, y=select_loc_y + y_derta)
+
+r3 = tk.Radiobutton(window, text='给定 当量比、H2占比、H2流量',
+                    variable=var_selected, value='3')
+r3.place(x=select_loc_x, y=select_loc_y + y_derta*2)
+
+r4 = tk.Radiobutton(window, text='给定 当量比、H2占比、总流量',
+                    variable=var_selected, value='4')
+r4.place(x=select_loc_x, y=select_loc_y + y_derta*3)
+
+r5 = tk.Radiobutton(window, text='给定 当量比、H2占比、气体流速',
+                    variable=var_selected, value='5')
+r5.place(x=select_loc_x, y=select_loc_y + y_derta*4)
+
+def get_input():
+    if entry_equivalent.get() == '':
+        equivalent = None
+    else:
+        equivalent = float(entry_equivalent.get())
+
+    if entry_mix_ratio.get() == '':
+        mix_ratio = None
+    else:
+        h2_perc = float(entry_mix_ratio.get()) / 100.0
+        nh3_perc = 1 - h2_perc
+        print(&quot;h2_perc&quot;, h2_perc)
+        print(&quot;nh3_perc&quot;, nh3_perc)
+        # mix_ratio = float(entry_mix_ratio.get())
+        mix_ratio = nh3_perc / h2_perc
+
+    if entry_air_flow.get() == '':
+        air_flow = None
+    else:
+        air_flow = float(entry_air_flow.get())
+
+    if entry_nh3_flow.get() == '':
+        nh3_flow = None
+    else:
+        nh3_flow = float(entry_nh3_flow.get())
+
+    if entry_h2_flow.get() == '':
+        h2_flow = None
+    else:
+        h2_flow = float(entry_h2_flow.get())
+
+    if entry_all_flow.get() == '':
+        all_flow = None
+    else:
+        all_flow = float(entry_all_flow.get())
+
+    if entry_flow_speed.get() == '':
+        flow_speed = None
+    else:
+        flow_speed = float(entry_flow_speed.get())
+
+    return equivalent, mix_ratio, air_flow, nh3_flow, h2_flow, all_flow, flow_speed
+
+def display_result(equivalent, mix_ratio, air_flow, nh3_flow, h2_flow, all_flow, flow_speed):
+    equivalent = round(equivalent, 2)
+    # mix_ratio = round(mix_ratio, 2)
+    h2_perc = round(float(entry_mix_ratio.get()), 2)
+    air_flow = round(air_flow, 2)
+    nh3_flow = round(nh3_flow, 2)
+    h2_flow = round(h2_flow, 2)
+    all_flow = round(all_flow, 2)
+    flow_speed = round(flow_speed, 2)
+
+    var_equivalent.set(str(equivalent))
+    # var_mix_ratio.set(str(mix_ratio))
+    var_mix_ratio.set(str(h2_perc))
+    var_air_flow.set(str(air_flow))
+    var_nh3_flow.set(str(nh3_flow))
+    var_h2_flow.set(str(h2_flow))
+    var_all_flow.set(str(all_flow))
+    var_flow_speed.set(str(flow_speed))
+
+def calcu():
+    cal_method = int(var_selected.get())
+    equivalent, mix_ratio, air_flow, nh3_flow, h2_flow, all_flow, flow_speed = get_input()
+    circular_area = 3.141592653 * (1.34 / 2)**2
+    concentrate_o2 = 0.21
+
+    #给定当量比、混合比、空气流量
+    if cal_method == 1:
+        h2_flow = (air_flow * concentrate_o2) / ((5*mix_ratio+2)/(4*equivalent))
+        nh3_flow = mix_ratio * h2_flow
+        all_flow = air_flow + h2_flow + nh3_flow
+        flow_speed = all_flow /60.0 / circular_area
+    #给定当量比、混合比、NH3流量大小
+    elif cal_method == 2:
+        h2_flow = nh3_flow / mix_ratio
+        air_flow = (((5*mix_ratio+2) / (4*equivalent*mix_ratio)) * nh3_flow) / concentrate_o2
+        all_flow = air_flow + h2_flow + nh3_flow
+        flow_speed = all_flow / 60.0 / circular_area
+    #给定当量比、混合比、H2流量
+    elif cal_method == 3:
+        nh3_flow = mix_ratio * h2_flow
+        air_flow = h2_flow * ((5*mix_ratio+2)/(4*equivalent)) / concentrate_o2
+        all_flow = air_flow + h2_flow + nh3_flow
+        flow_speed = all_flow / 60.0 / circular_area
+    #给定当量比、混合比、总流量
+    elif cal_method == 4:
+        h2_flow = all_flow / (1 + mix_ratio + (((5*mix_ratio+2)/(4*equivalent)) / concentrate_o2))
+        nh3_flow = mix_ratio * h2_flow
+        air_flow = ((5*mix_ratio+2)/(4*equivalent)) / concentrate_o2 * h2_flow
+        flow_speed = all_flow / 60.0 / circular_area
+    #给定当量比、混合比、气体流速
+    elif cal_method == 5:
+        all_flow = 60 * circular_area * flow_speed
+        h2_flow = all_flow / (1 + mix_ratio + ((5 * mix_ratio + 2) / (4 * equivalent)) / concentrate_o2)
+        nh3_flow = mix_ratio * h2_flow
+        air_flow = ((5 * mix_ratio + 2) / (4 * equivalent)) / concentrate_o2 * h2_flow
+
+    display_result(equivalent, mix_ratio, air_flow, nh3_flow, h2_flow, all_flow, flow_speed)
+
+    print(equivalent, mix_ratio, air_flow, nh3_flow, h2_flow, all_flow, flow_speed)
+    print(var_selected.get())
+
+
+btn_calcu = tk.Button(window, text='计算', command=calcu, padx=5, pady=5, background='gray', font=('Times news',20))
+btn_calcu.place(x=320, y=220)
+
+
+window.mainloop()
+</code></pre>
+
+<p>程序GUI界面：</p>
+
+<p><img src="https://raw.githubusercontent.com/tangg9646/my_github_image_bed/master/img20191206154916.png" alt="" /></p>
+
+<h2 id="3-函数的参数">3. 函数的参数</h2>
+
+<p><strong>可变参数</strong></p>
+
+<p>*args类型的参数，*args代表一个元组对象</p>
+
+<pre><code class="language-python">def fruits(aa, *args):
+    print(aa)
+    for bb in args:
+        print(&quot;可变参数为：&quot;, bb)
+    return
+</code></pre>
+
+<p>**args类型的参数，**args代表一个字典对象</p>
+
+<pre><code class="language-python">def fruits(**args):
+    for name, value in args.items():
+        print(&quot;name=&quot;, name)
+        print(&quot;value=&quot;, value)
+        
+fruits(apple=2.33, banana=4.23, orange=7.325)
+</code></pre>
+
+<h2 id="4-format格式化函数">4. format格式化函数</h2>
+
+<p>格式化字符串的函数 <strong>str.format()</strong>，它增强了字符串格式化的功能。</p>
+
+<p>基本语法是通过 <strong>{}</strong> 和 <strong>:</strong> 来代替以前的 <strong>%</strong> 。</p>
+
+<p>format 函数可以接受不限个参数，位置可以不按顺序。</p>
+
+<p>实例：</p>
+
+<pre><code class="language-python">&gt;&gt;&gt;&quot;{} {}&quot;.format(&quot;hello&quot;, &quot;world&quot;)    # 不设置指定位置，按默认顺序
+'hello world'
+ 
+&gt;&gt;&gt; &quot;{0} {1}&quot;.format(&quot;hello&quot;, &quot;world&quot;)  # 设置指定位置
+'hello world'
+ 
+&gt;&gt;&gt; &quot;{1} {0} {1}&quot;.format(&quot;hello&quot;, &quot;world&quot;)  # 设置指定位置
+'world hello world'
+</code></pre>
+
+<p>设置参数的情况：</p>
+
+<pre><code class="language-python"># 通过指定名称
+print(&quot;网站名：{name}, 地址 {url}&quot;.format(name=&quot;菜鸟教程&quot;, url=&quot;www.runoob.com&quot;))
+ 
+# 通过字典设置参数
+site = {&quot;name&quot;: &quot;菜鸟教程&quot;, &quot;url&quot;: &quot;www.runoob.com&quot;}
+print(&quot;网站名：{name}, 地址 {url}&quot;.format(**site))
+ 
+# 通过列表索引设置参数
+my_list = ['菜鸟教程', 'www.runoob.com']
+print(&quot;网站名：{0[0]}, 地址 {0[1]}&quot;.format(my_list))  # &quot;0&quot; 是必须的
+</code></pre>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/19168686-c0dd3d733ba52a0b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" /></p>
+
+<pre><code class="language-python">&gt;&gt;&gt;print (&quot;{} 对应的位置是 {{0}}&quot;.format(&quot;runoob&quot;))
+runoob 对应的位置是 {0}
+</code></pre>
+
+<h2 id="5-迭代器-生成器-装饰器">5. 迭代器，生成器，装饰器</h2>
+
+<h3 id="5-1-迭代器">5.1 迭代器</h3>
+
+<p>可迭代对象：list , str, tiple等</p>
+
+<p>迭代：通过for循环来遍历这个可迭代对象</p>
+
+<p>迭代器是一个可以记住遍历未知的对象。</p>
+
+<h3 id="5-2-生成器">5.2 生成器</h3>
+
+<p>使用生成器可以生成一个值的序列用于迭代，这个值的序列并不是一次生成的，二是使用一个再生成一个，可以使程序节约大量内存。</p>
+
+<p><strong>生成器将返回一个迭代器的函数</strong>，并且生成器只能用于迭代操作，因此，生成器是一种特殊的迭代器。</p>
+
+<pre><code class="language-python">list = [
+    [1,3],
+    [4,6],
+    [7,9]
+]
+
+def c_gene(list):
+    for aa in list:
+        for bb in aa:
+            yield bb
+            print(&quot;already finished pause&quot;)
+
+for nn in c_gene(list):
+    print(nn)
+</code></pre>
+
+<p>结果：</p>
+
+<blockquote>
+<p>1
+already finished pause
+3
+already finished pause
+4
+already finished pause
+6
+already finished pause
+7
+already finished pause
+9
+already finished pause</p>
+</blockquote>
+
+<p>实例2</p>
+
+<pre><code class="language-python"># 定义一个生成器（函数）
+def myYield(n):
+    while n&gt;0:
+        print(&quot;\n开始生成...&quot;)
+        yield n
+        print(&quot;完成一次yield&quot;)
+        n -= 1
+        
+        
+for i in myYield(6):
+    print(&quot;遍历得到的值为：&quot;, i)
+print(&quot;\n\n&quot;)
+
+# 注意！生成器返回的是一个迭代器的函数
+# 得到生成器对象
+my_yield_obj = myYield(8)
+print(&quot;已经实例化生成器对象&quot;)
+my_yield_obj.__next__()
+print(&quot;第二次调用next方法（）&quot;)
+my_yield_obj.__next__()
+</code></pre>
+
+<p>运行结果：</p>
+
+<blockquote>
+<pre><code>&gt; 开始生成...
+&gt; 遍历得到的值为： 6
+&gt; 完成一次yield
+&gt; 
+&gt; 开始生成...
+&gt; 遍历得到的值为： 5
+&gt; 完成一次yield
+&gt; 
+&gt; 开始生成...
+&gt; 遍历得到的值为： 4
+&gt; 完成一次yield
+&gt; 
+&gt; 开始生成...
+&gt; 遍历得到的值为： 3
+&gt; 完成一次yield
+&gt; 
+&gt; 开始生成...
+&gt; 遍历得到的值为： 2
+&gt; 完成一次yield
+&gt; 
+&gt; 开始生成...
+&gt; 遍历得到的值为： 1
+&gt; 完成一次yield
+&gt; 
+&gt; 
+&gt; 
+&gt; 已经实例化生成器对象
+&gt; 
+&gt; 开始生成...
+&gt; 第二次调用next方法（）
+&gt; 完成一次yield
+&gt; 
+&gt; 开始生成...
+&gt; ```
+
+**在深度学习的神经网络的模型训练中会用到生成器的用法**
+
+将数据分批处理，送给模型进行训练
+
+**【第6章 循环神经网络高级用法-温度预测问题.ipynb】**
+
+</code></pre>
+
+<p>python</p>
+
+<h1 id="生成时间序列样本及其目标的生成器">生成时间序列样本及其目标的生成器</h1>
+
+<p>def generator(data, lookback, delay, min_index, max_index,
+              shuffle=False, batch_size=128, step=6):
+    if max_index is None:
+        max_index = len(data) - delay - 1 #由于要得到预测“目标值”，因此最大值应该减去delay
+    i = min_index + lookback #由于输入数据应该包含lookback个过去时间步，所以应从min_index+lookback开始
+    while 1:
+        if shuffle: #如果指定打乱顺序
+            rows = np.random.randint(
+                min_index + lookback, max_index, size=batch_size)
+        else:
+            if i + batch_size &gt;= max_index: #如果剩余的数据不足以抽取一个batch_size
+                i = min_index + lookback #则，将i重置为最小值
+            #可供抽取的行的范围，通常是i~(i+batch_size)之间
+            rows = np.arange(i, min(i + batch_size, max_index))
+            #下一次，i从下一批次的索引开始
+            i += len(rows)</p>
+</blockquote>
+
+<pre><code>    #新建空白矩阵
+    #（batch_size * perStep * features）
+    samples = np.zeros((len(rows), 
+                       lookback // step, 
+                       data.shape[-1])) 
+    #用于存储目标向量
+    targets = np.zeros((len(rows),)) 
+
+    # 正式提取样本
+    for j, row in enumerate(rows): 
+        indices = range(rows[j] - lookback, rows[j], step) 
+        samples[j] = data[indices] 
+        targets[j] = data[rows[j] + delay][1] 
+    yield samples, targets
+</code></pre>
+
+<pre><code>
+</code></pre>
+
+<p>python
+lookback = 1440
+step = 6
+delay = 144
+batch_size = 128</p>
+
+<p>train_gen = generator(float_data,
+                      lookback=lookback,
+                      delay=delay,
+                      min_index=0,
+                      max_index=200000,
+                      shuffle=True,
+                      step=step,
+                      batch_size=batch_size)
+val_gen = generator(float_data,
+                    lookback=lookback,
+                    delay=delay,
+                    min_index=200001,
+                    max_index=300000,
+                    step=step,
+                    batch_size=batch_size)
+test_gen = generator(float_data,
+                     lookback=lookback,
+                     delay=delay,
+                     min_index=300001,
+                     max_index=None,
+                     step=step,
+                     batch_size=batch_size)</p>
+
+<p>val_steps = (300000 - 200001 - lookback)  //batch_size</p>
+
+<p>test_steps = (len(float_data) - 300001 - lookback)  //batch_size</p>
+
+<pre><code>
+</code></pre>
+
+<p>python
+history = model.fit_generator(train_gen,
+                              steps_per_epoch=500,<br />
+                              epochs=8,<br />
+                              validation_data=val_gen,<br />
+                              validation_steps=val_steps)</p>
+
+<pre><code>
+### 5.3 装饰器
+
+用于在已经写完的长函数里面添加一些功能。
+
+即使是不同目的或者不同类的函数或者更类，也可以插入相同的功能。
+
+
+
+- 定义装饰器
+
+  装饰器的定义与普通函数定义形式上相同
+
+  装饰器函数的参数，必须要有函数或者类对象
+
+  在装饰器函数中重新定义一个新的函数或者类，并在其中执行某些功能的前后或者中间使用被装饰的函数或类
+
+  最后返回这个新定义的函数或者类
+
+- 在定义的普通函数声明前一行加入
+
+  @装饰函数名称
+
+  使得这个普通函数被装饰器所装饰
+
+- 最后，对被装饰的函数进行调用
+
+#### 1) 装饰函数
+
+实例：
+
+</code></pre>
+
+<p>python
+import functools</p>
+
+<h1 id="定义一个装饰器">定义一个装饰器</h1>
+
+<p>def decorator(func):
+    # 定义装饰器函数
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        print(&ldquo;进入装饰器函数内部，可以在普通函数开始执行前，添加一些新功能&rdquo;)
+        func(*args, **kwargs)
+        print(&ldquo;普通函数运行结束， 可以自己再添加某些功能&rdquo;)
+    return wrapper</p>
+
+<p>#装饰语句函数
+@decorator
+def normal_func1(x):
+    a = []
+    for i in range(x):
+        a.append(i)
+    print(a)</p>
+
+<p>@decorator
+def normal_func2(n):
+    print(&ldquo;最喜欢的水果是：&rdquo;, n)</p>
+
+<pre><code>
+</code></pre>
+
+<p>python
+normal_func1(5)</p>
+
+<pre><code>
+&gt; ```
+&gt; 进入装饰器函数内部，可以在普通函数开始执行前，添加一些新功能
+&gt; [0, 1, 2, 3, 4]
+&gt; 普通函数运行结束， 可以自己再添加某些功能
+&gt; ```
+
+</code></pre>
+
+<p>python
+normal_func2(&ldquo;香蕉&rdquo;)</p>
+
+<pre><code>
+&gt; ```
+&gt; 进入装饰器函数内部，可以在普通函数开始执行前，添加一些新功能
+&gt; 最喜欢的水果是： 香蕉
+&gt; 普通函数运行结束， 可以自己再添加某些功能
+&gt; ```
+
+---
+
+**如果装饰器本身需要传入参数**
+
+---
+
+</code></pre>
+
+<p>python
+import functools</p>
+
+<h1 id="定义一个装饰器-1">定义一个装饰器</h1>
+
+<p>def log(text):
+    def decorator(func):</p>
+
+<pre><code>    # 定义装饰器函数
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        print(text)
+        print(&quot;进入装饰器函数内部，可以在普通函数开始执行前，添加一些新功能&quot;)
+        func(*args, **kwargs)
+        print(&quot;普通函数运行结束， 可以自己再添加某些功能&quot;)
+
+    return wrapper
+
+return decorator
+</code></pre>
+
+<p>#装饰语句函数
+@log(&ldquo;这是range函数&rdquo;)
+def normal_func1(x):
+    a = []
+    for i in range(x):
+        a.append(i)
+    print(a)</p>
+
+<p>@log(&ldquo;这是喜欢的水果函数&rdquo;)
+def normal_func2(n):
+    print(&ldquo;最喜欢的水果是：&rdquo;, n)</p>
+
+<pre><code>
+</code></pre>
+
+<p>python
+normal_func1(5)</p>
+
+<pre><code>
+&gt; ```
+&gt; 这是range函数
+&gt; 进入装饰器函数内部，可以在普通函数开始执行前，添加一些新功能
+&gt; [0, 1, 2, 3, 4]
+&gt; 普通函数运行结束， 可以自己再添加某些功能
+&gt; ```
+
+</code></pre>
+
+<p>python
+normal_func2(&ldquo;橘子&rdquo;)</p>
+
+<pre><code>
+&gt; ```
+&gt; 这是喜欢的水果函数
+&gt; 进入装饰器函数内部，可以在普通函数开始执行前，添加一些新功能
+&gt; 最喜欢的水果是： 橘子
+&gt; 普通函数运行结束， 可以自己再添加某些功能
+&gt; ```
+
+---
+
+**func.\__name__参数**
+
+---
+
+执行完装饰器参数后，normal_fun1.\__name__属性会变成了wrapper
+
+有些依赖函数签名的代码执行就会出错，需要将其\__name__属性更换为原本的名字
+
+解决办法：
+
+- 导入functools模块
+- 在在定义`wrapper()`的前面加上`@functools.wraps(func)`
+
+
+
+#### 2) 装饰类
+
+</code></pre>
+
+<p>python</p>
+
+<h1 id="定义一个装饰器-2">定义一个装饰器</h1>
+
+<p>def decorator(myclass):
+    # 定义内嵌类
+    class InnerClass:
+        def <strong>init</strong>(self, z=0):
+            self.z = z
+            # 实例化被装饰的类
+            self.wrapper = myclass()
+        def position(self):
+            self.wrapper.position()
+            print(&ldquo;z axis:&ldquo;, self.z)</p>
+
+<pre><code># 返回新定义的类
+return InnerClass
+</code></pre>
+
+<h1 id="使用修饰器修饰原本的类">使用修饰器修饰原本的类</h1>
+
+<p>@decorator
+class coordination:
+    def <strong>init</strong>(self, x=100, y=100):
+        self.x = x
+        self.y = y</p>
+
+<pre><code>def position(self):
+    print(&quot;x axis:&quot;, self.x)
+    print(&quot;y axis:&quot;, self.y)
+</code></pre>
+
+<pre><code>
+</code></pre>
+
+<p>python
+coor = coordination()
+coor.position()</p>
+
+<pre><code>
+&gt; ```python
+&gt; x axis: 100
+&gt; y axis: 100
+&gt; z axis: 0
+&gt; ```
+
+---
+
+**如果装饰类需要传入参数**
+
+---
+
+比如增加类的属性，指定属性的值
+
+</code></pre>
+
+<p>python</p>
+
+<h1 id="定义一个装饰器-3">定义一个装饰器</h1>
+
+<p>def add_z(zz = 99):
+    # 定义装饰器
+    def decorator(myclass):</p>
+
+<pre><code>    class InnerClass:
+        def __init__(self, z=0):
+            self.z = zz
+            # 实例化被装饰的类
+            self.wrapper = myclass()
+        def position(self):
+            self.wrapper.position()
+            print(&quot;z axis:&quot;, self.z)
+
+    # 返回新定义的类
+    return InnerClass
+
+return decorator
+</code></pre>
+
+<h1 id="使用修饰器修饰原本的类-1">使用修饰器修饰原本的类</h1>
+
+<p>@add_z(85)
+class coordination:
+    def <strong>init</strong>(self, x=100, y=100):
+        self.x = x
+        self.y = y</p>
+
+<pre><code>def position(self):
+    print(&quot;x axis:&quot;, self.x)
+    print(&quot;y axis:&quot;, self.y)
+</code></pre>
+
+<pre><code>
+</code></pre>
+
+<p>python
+coor = coordination()
+coor.position()</p>
+
+<pre><code>
+&gt; ```
+&gt; x axis: 100
+&gt; y axis: 100
+&gt; z axis: 85
+&gt; ```
+
+## 6. 将python程序打包成exe
+
+通过安装pyinstaller模块，通过命名实现打包
+
+在终端当前程序所处目录下运行：
+
+</code></pre>
+
+<p>python
+pyinstaller -w -F 你的程序.py
+```</p>
+
+<p>执行完成后，会在当前目录下出现三个文件：</p>
+
+<ul>
+<li>.spec文件：此文件无用，也可以删除。</li>
+<li>dist文件夹：此文件夹下有你想要的.exe文件，可以直接在命令框执行</li>
+<li>build文件夹：此文件夹无用，可以删除。</li>
+</ul>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

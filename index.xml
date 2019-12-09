@@ -109,6 +109,7 @@ Python里的原生字符串很好地解决了这个问题，这个例子中的�
       <guid>https://tangg9646.github.io/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95-%E4%BB%A3%E7%A0%81%E6%95%B4%E7%90%86/</guid>
       <description>本文整理了入门python机器学习最基本的算法，可作为手册使用
 梳理了python代码，方便快速从这个手册中构建出相应的代码应用于自己的项目中
+[TOC]
 1.KNN 分类算法 由于knn算法涉及到距离的概念，KNN 算法需要先进行归一化处理
 1.1 归一化处理 scaler from sklearn.preprocessing import StandardScaler standardScaler =StandardScaler() standardScaler.fit(X_train) X_train_standard = standardScaler.transform(X_train) X_test_standard = standardScaler.transform(X_test)  归一化之后送入模型进行训练
 from sklearn.neighbors import KNeighborsClassifier knn_clf = KNeighborsClassifier(n_neighbors=8) knn_classifier.fit(X_train_standard, y_train) y_predict = knn_clf.predict(X_test_standard) # 默认的预测指标为分类准确度 knn_clf.score(X_test, y_test)  1.2 网格搜索 GridSearchCV 使用网格搜索来确定KNN算法合适的超参数
@@ -145,6 +146,41 @@ hugo new sie C:/User/TG/tgblog  执行完命名后即可在对应目录下找到
 使用命令行进入创建的tgbolg文件夹
 cd C:/User/TG/tgblog  将选定好的主题，通过git命名下载到theme文件夹
 git clone https://github.com/vaga/hugo-theme-m10c.git themes/m10c  4.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://tangg9646.github.io/post/boosting%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangg9646.github.io/post/boosting%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/</guid>
+      <description>一、Boosting算法 boosting算法有许多种具体算法，包括但不限于ada boosting \ GBDT \ XGBoost .
+所谓 Boosting ，就是将弱分离器 f_i(x) 组合起来形成强分类器 F(x) 的一种方法。
+1. Ada boosting 每个子模型模型都在尝试增强（boost）整体的效果，通过不断的模型迭代，更新样本点的权重
+Ada Boosting没有oob（out of bag ) 的样本，因此需要进行 train_test_split
+原始数据集 》 某种算法拟合，会 产生错误 》 根据上个模型预测结果，更新样本点权重（预测错误的结果权重增大） 》 再次使用模型进行预测 》重复上述过程，继续重点训练错误的预测样本点
+每一次生成的子模型，都是在生成拟合结果更好的模型，
+（用的数据点都是相同的，但是样本点具有不同的权重值）
+需要指定 Base Estimator
+from sklearn.ensemble import AdaBoostClassifier from sklearn.tree import DecisionTreeClassifier ada_clf = AdaBoostClassifier(DecisionTreeClassifier(max_depth=2), n_estimators=500) ada_clf.fit(X_train, y_train) ada_clf.score(X_test, y_test)  2. Gradient Boosting(GBDT) Gradient Boosting 又称为 DBDT （gradient boosting decision tree ）</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://tangg9646.github.io/post/python-anaconda%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tangg9646.github.io/post/python-anaconda%E7%AC%94%E8%AE%B0/</guid>
+      <description>anaconda笔记  查看notebook运行在哪个python下
+import sys print(sys.executable)   python笔记 1. pickle保存数据 import pickle a_dict = { &amp;quot;da&amp;quot;:123, 2:[12,55,69,8], &amp;quot;25&amp;quot;:{1:2, &amp;quot;dd&amp;quot;:&amp;quot;of&amp;quot;}} # 保存数据 with open(&amp;quot;pickle_example.pickle&amp;quot;, &#39;wb&#39;) as file: pickle.dump(a_dict, file) # 读取数据 with open(&amp;quot;pickle_example.pickle&amp;quot;, &#39;rb&#39;) as file: a_dict2 = pickle.load(file) print(a_dict2)  2. python 的tkinter窗口 python的内置图形化窗口（GUI）
+代码的复现文件夹为
+Win_Linux_Share/GUI窗口
+实例：计算NH3-H2流量 这个例子包括了：标签、按钮、输入框、选择框
+标签：Label
+按钮：Radiobutton
+输入框：Entry
+选择框：Button
+import tkinter as tk from tkinter import messagebox # import this to fix messagebox error import pickle window = tk.</description>
     </item>
     
   </channel>

@@ -1,0 +1,1004 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title> // 唐广的个人博客</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="TG" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://tangg9646.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="一、Boosting算法 boosting算法有许多种具体算法，包括但不限于ada boosting \ GBDT \ XGBoost .
+所谓 Boosting ，就是将弱分离器 f_i(x) 组合起来形成强分类器 F(x) 的一种方法。
+1. Ada boosting 每个子模型模型都在尝试增强（boost）整体的效果，通过不断的模型迭代，更新样本点的权重
+Ada Boosting没有oob（out of bag ) 的样本，因此需要进行 train_test_split
+原始数据集 》 某种算法拟合，会 产生错误 》 根据上个模型预测结果，更新样本点权重（预测错误的结果权重增大） 》 再次使用模型进行预测 》重复上述过程，继续重点训练错误的预测样本点
+每一次生成的子模型，都是在生成拟合结果更好的模型，
+（用的数据点都是相同的，但是样本点具有不同的权重值）
+需要指定 Base Estimator
+from sklearn.ensemble import AdaBoostClassifier from sklearn.tree import DecisionTreeClassifier ada_clf = AdaBoostClassifier(DecisionTreeClassifier(max_depth=2), n_estimators=500) ada_clf.fit(X_train, y_train) ada_clf.score(X_test, y_test)  2. Gradient Boosting(GBDT) Gradient Boosting 又称为 DBDT （gradient boosting decision tree ）"/>
+
+    <meta property="og:title" content="" />
+<meta property="og:description" content="一、Boosting算法 boosting算法有许多种具体算法，包括但不限于ada boosting \ GBDT \ XGBoost .
+所谓 Boosting ，就是将弱分离器 f_i(x) 组合起来形成强分类器 F(x) 的一种方法。
+1. Ada boosting 每个子模型模型都在尝试增强（boost）整体的效果，通过不断的模型迭代，更新样本点的权重
+Ada Boosting没有oob（out of bag ) 的样本，因此需要进行 train_test_split
+原始数据集 》 某种算法拟合，会 产生错误 》 根据上个模型预测结果，更新样本点权重（预测错误的结果权重增大） 》 再次使用模型进行预测 》重复上述过程，继续重点训练错误的预测样本点
+每一次生成的子模型，都是在生成拟合结果更好的模型，
+（用的数据点都是相同的，但是样本点具有不同的权重值）
+需要指定 Base Estimator
+from sklearn.ensemble import AdaBoostClassifier from sklearn.tree import DecisionTreeClassifier ada_clf = AdaBoostClassifier(DecisionTreeClassifier(max_depth=2), n_estimators=500) ada_clf.fit(X_train, y_train) ada_clf.score(X_test, y_test)  2. Gradient Boosting(GBDT) Gradient Boosting 又称为 DBDT （gradient boosting decision tree ）" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tangg9646.github.io/post/boosting%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://tangg9646.github.io/"><img class="app-header-avatar" src="https://upload-images.jianshu.io/upload_images/19168686-5c06ac3debe107b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="TG" /></a>
+      <h1>唐广的个人博客</h1>
+      <p>尝试用hugo平台构建我的个人博客，用于记录学习笔记以及自己的想法</p>
+      <div class="app-header-social">
+        
+          <a target="_blank" href="https://github.com/tangg9646" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-link">
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+</svg></a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title"></h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jan 1, 0001
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          8 min read
+        </div></div>
+    </header>
+    <div class="post-content">
+      
+
+<h1 id="一-boosting算法">一、Boosting算法</h1>
+
+<p>boosting算法有许多种具体算法，包括但不限于ada boosting \ GBDT \ XGBoost .</p>
+
+<p>所谓 <strong>Boosting</strong> ，就是将弱分离器 f_i(x) 组合起来形成强分类器 F(x) 的一种方法。</p>
+
+<h2 id="1-ada-boosting">1. Ada boosting</h2>
+
+<p>每个子模型模型都在尝试<strong>增强（boost）</strong>整体的效果，通过不断的模型迭代，更新样本点的<strong>权重</strong></p>
+
+<p>Ada Boosting没有<strong>oob</strong>（out of bag ) 的样本，因此需要进行 <strong>train_test_split</strong></p>
+
+<p>原始数据集 》 某种算法拟合，会 产生错误 》 根据上个模型预测结果，更新样本点权重（预测错误的结果权重增大） 》 再次使用模型进行预测 》重复上述过程，继续重点训练错误的预测样本点</p>
+
+<p><strong>每一次生成的子模型，都是在生成拟合结果更好的模型，</strong></p>
+
+<p><strong>（用的数据点都是相同的，但是样本点具有不同的权重值）</strong></p>
+
+<p><img src="https://raw.githubusercontent.com/tangg9646/my_github_image_bed/master/img20191208161356.png" alt="" /></p>
+
+<p>需要指定 <strong>Base Estimator</strong></p>
+
+<pre><code class="language-python">from sklearn.ensemble import AdaBoostClassifier
+from sklearn.tree import DecisionTreeClassifier
+
+ada_clf = AdaBoostClassifier(DecisionTreeClassifier(max_depth=2), n_estimators=500)
+ada_clf.fit(X_train, y_train)
+
+ada_clf.score(X_test, y_test)
+</code></pre>
+
+<h2 id="2-gradient-boosting-gbdt">2. Gradient Boosting(GBDT)</h2>
+
+<p>Gradient Boosting 又称为 <strong>DBDT</strong> （gradient boosting decision tree ）</p>
+
+<p>训练一个模型m1， 产生错误e1</p>
+
+<p>针对e1训练第二个模型m2， 产生错误e2</p>
+
+<p>针对e2训练第二个模型m3， 产生错误e3</p>
+
+<p>&hellip;&hellip;</p>
+
+<p>最终的预测模型是：$m1+m2+m3+&hellip;$</p>
+
+<p><img src="https://raw.githubusercontent.com/tangg9646/my_github_image_bed/master/img20191208161814.png" alt="" /></p>
+
+<p>Gradient Boosting是<strong>基于决策树</strong>的，不用指定Base Estimator</p>
+
+<pre><code class="language-python">from sklearn.ensemble import GradientBoostingClassifier
+
+gb_clf = GradientBoostingClassifier(max_depth=2, n_estimators=30)
+gb_clf.fit(X_train, y_train)
+gb_clf.score(X_test, y_test)
+</code></pre>
+
+<h2 id="3-xgboost">3.XGBoost</h2>
+
+<p>这个算法的<strong>Base Estimator</strong>是基于decision tree的</p>
+
+<p>Xgboost是在<strong>GBDT</strong>的基础上进行改进，使之更强大，适用于更大范围</p>
+
+<p>xgboost可以用来确定特征的重要程度</p>
+
+<p>强烈推荐<strong>博客园</strong>上【战争热诚】写的一篇介绍xgboost算法的文章，</p>
+
+<p><a href="https://www.cnblogs.com/wj-1314/p/9402324.html">Python机器学习笔记：XgBoost算法</a></p>
+
+<p>非常详细地介绍了xgboost的优点、安装、xgboost参数的含义、使用xgboost实例代码、保存训练好的模型、并介绍了xgboost参数调优的一半流程。</p>
+
+<p>然而，，，我发现该作者好像也是转载的，怪不得有些地方看不懂，还缺少代码。不过是中文的有助于理解。</p>
+
+<p>文章原文链接如下：</p>
+
+<p><a href="https://www.analyticsvidhya.com/blog/2016/03/complete-guide-parameter-tuning-xgboost-with-codes-python/">Complete Guide to Parameter Tuning in XGBoost with codes in Python</a></p>
+
+<p>文中提到的数据的github仓库地址：</p>
+
+<p><a href="https://github.com/aarshayj/Analytics_Vidhya/tree/master/Articles/Parameter_Tuning_GBM_with_Example">Parameter_Tuning_GBM_with_Example</a></p>
+
+<p>另外一篇，掘金上不错的文章：</p>
+
+<p><a href="https://juejin.im/post/5b7669c4f265da281c1fbf96">xgboost参数解释、调参</a></p>
+
+<h3 id="3-1-xgboost模型参数">3.1 xgboost模型参数</h3>
+
+<p>模型参数总体上分为3类：</p>
+
+<h4 id="1-通用参数"><strong>1. 通用参数</strong></h4>
+
+<ul>
+<li>booster[default=gbtree]
+
+<ul>
+<li>有两种模型可以选择gbtree和gblinear。gbtree使用基于树的模型进行提升计算，gblinear使用线性模型进行提升计算。<code>缺省值为gbtree</code></li>
+</ul></li>
+<li>silent  [default=0]
+
+<ul>
+<li>取0时表示打印出运行时信息，取1时表示以缄默方式运行，不打印运行时的信息。<code>缺省值为0</code></li>
+</ul></li>
+<li>nthread
+
+<ul>
+<li>XGBoost运行时的线程数。<code>缺省值是当前系统可以获得的最大线程数</code></li>
+</ul></li>
+<li>num_pbuffer
+
+<ul>
+<li>预测缓冲区的大小，通常设置为训练实例数。缓冲区用于保存最后提升步骤的预测结果</li>
+</ul></li>
+<li>num_feature
+
+<ul>
+<li>boosting过程中用到的特征维数，设置为特征个数。<code>XGBoost会自动设置，不需要手工设置</code></li>
+</ul></li>
+</ul>
+
+<h4 id="2-booster参数"><strong>2. booster参数</strong></h4>
+
+<p>booster参数根据选择的booster不同，又分为两个类别，分别介绍如下：</p>
+
+<p><strong>2.1 tree booster参数</strong></p>
+
+<ul>
+<li>eta [default=0.3]
+
+<ul>
+<li>为了防止过拟合，更新过程中用到的收缩步长。在每次提升计算之后，算法会直接获得新特征的权重。 eta通过缩减特征的权重使提升计算过程更加保守。<code>缺省值为0.3</code></li>
+<li>取值范围为：[0,1]</li>
+<li>通常最后设置eta为0.01~0.2</li>
+</ul></li>
+<li>gamma [default=0]
+
+<ul>
+<li>minimum loss reduction required to make a further partition on a leaf node of the tree. the larger, the more conservative the algorithm will be.</li>
+<li>range: [0,∞]</li>
+<li>模型在默认情况下，对于一个节点的划分只有在其loss function 得到结果大于0的情况下才进行，而gamma 给定了所需的最低loss function的值</li>
+<li>gamma值使得算法更conservation，且其值依赖于loss function ，在模型中应该进行调参。</li>
+</ul></li>
+<li>max_depth [default=6]
+
+<ul>
+<li>树的最大深度。<code>缺省值为6</code></li>
+<li>取值范围为：[1,∞]</li>
+<li>指树的最大深度</li>
+<li>树的深度越大，则对数据的拟合程度越高（过拟合程度也越高）。即该参数也是控制过拟合</li>
+<li>建议通过交叉验证（xgb.cv ) 进行调参</li>
+<li>通常取值：3-10</li>
+</ul></li>
+<li>min_child_weight [default=1]
+
+<ul>
+<li>孩子节点中最小的样本权重和。如果一个叶子节点的样本权重和小于min_child_weight则拆分过程结束。在现行回归模型中，这个参数是指建立每个模型所需要的最小样本数。该常数越大算法越conservative。即调大这个参数能够控制过拟合。</li>
+<li>取值范围为: [0,∞]</li>
+</ul></li>
+<li>max_delta_step [default=0]
+
+<ul>
+<li>取值范围为：[0,∞]</li>
+<li>如果取值为0，那么意味着无限制。如果取为正数，则其使得xgboost更新过程更加保守。</li>
+<li>通常不需要设置这个值，但在使用logistics 回归时，若类别极度不平衡，则调整该参数可能有效果</li>
+</ul></li>
+<li>subsample [default=1]
+
+<ul>
+<li>用于训练模型的子样本占整个样本集合的比例。如果设置为0.5则意味着XGBoost将随机的从整个样本集合中抽取出50%的子样本建立树模型，这能够防止过拟合。</li>
+<li>取值范围为：(0,1]</li>
+</ul></li>
+<li>colsample_bytree [default=1]
+
+<ul>
+<li>在建立树时对<strong>特征</strong>随机采样的比例(因为每一列是一个特征）。<code>缺省值为1</code></li>
+<li>取值范围：(0,1]</li>
+</ul></li>
+<li>colsample_bylevel[default=1]
+
+<ul>
+<li>决定每次节点划分时子样例的比例</li>
+<li>通常不使用，因为subsample和colsample_bytree已经可以起到相同的作用了</li>
+</ul></li>
+<li>scale_pos_weight[default=0]
+
+<ul>
+<li>大于0的取值可以处理类别不平衡的情况。帮助模型更快收敛</li>
+</ul></li>
+</ul>
+
+<p><strong>Linear Booster参数</strong></p>
+
+<ul>
+<li>lambda [default=0]
+
+<ul>
+<li>L2 正则的惩罚系数</li>
+<li>用于处理XGBoost的正则化部分。通常不使用，但可以用来降低过拟合</li>
+</ul></li>
+<li>alpha [default=0]
+
+<ul>
+<li>L1 正则的惩罚系数</li>
+<li>当数据维度极高时可以使用，使得算法运行更快。</li>
+</ul></li>
+<li>lambda_bias
+
+<ul>
+<li>在偏置上的L2正则。<code>缺省值为0</code>（在L1上没有偏置项的正则，因为L1时偏置不重要）</li>
+</ul></li>
+</ul>
+
+<h4 id="3-学习目标参数">3. 学习目标参数</h4>
+
+<p>这个参数是来控制理想的优化目标和每一步结果的度量方法。</p>
+
+<ul>
+<li>objective [ default=reg:linear ]</li>
+</ul>
+
+<p>定义学习任务及相应的学习目标，可选的目标函数如下：</p>
+
+<ul>
+<li>“reg:linear” –线性回归。</li>
+<li>“reg:logistic” –逻辑回归。</li>
+<li>“binary:logistic” –二分类的逻辑回归问题，输出为概率。</li>
+<li>“multi:softmax” –让XGBoost采用softmax目标函数处理多分类问题，同时需要设置参数<strong>num_class</strong>（类别个数）</li>
+
+<li><p>“multi:softprob” –和softmax一样，但是输出的是ndata * nclass的向量，可以将该向量reshape成ndata行nclass列的矩阵。每行数据表示样本所属于每个类别的概率。</p></li>
+
+<li><p>base_score [ default=0.5 ]</p>
+
+<ul>
+<li>the initial prediction score of all instances, global bias</li>
+</ul></li>
+
+<li><p>eval_metric [ default according to objective ]</p></li>
+</ul>
+
+<p>校验数据所需要的评价指标，不同的目标函数将会有缺省的评价指标</p>
+
+<p>用户可以添加多种评价指标，对于Python用户要以list传递参数对给程序</p>
+
+<p>The choices are listed below:</p>
+
+<ul>
+<li>“rmse”: <a href="http://en.wikipedia.org/wiki/Root_mean_square_error">root mean square error</a>回归问题默认的参数</li>
+<li>“logloss”: negative <a href="http://en.wikipedia.org/wiki/Log-likelihood">log-likelihood</a></li>
+<li>“error”: Binary classification error rate. It is calculated as #(wrong cases)/#(all cases). For the predictions, the evaluation will regard the instances with prediction value larger than 0.5 as positive instances, and the others as negative instances.分类问题默认参数</li>
+<li>“merror”: Multiclass classification error rate. It is calculated as #(wrong cases)/#(all cases).</li>
+<li>“mlogloss”: Multiclass logloss</li>
+<li>“<a href="https://www.baidu.com/s?wd=auc&amp;tn=24004469_oem_dg&amp;rsv_dl=gh_pl_sl_csd">auc</a>”: <a href="http://en.wikipedia.org/wiki/Receiver_operating_characteristic#Area_under_curve">Area under the curve</a> for ranking evaluation.</li>
+<li>“ndcg”:<a href="http://en.wikipedia.org/wiki/NDCG">Normalized Discounted Cumulative Gain</a></li>
+
+<li><p>“map”:<a href="http://en.wikipedia.org/wiki/Mean_average_precision#Mean_average_precision">Mean average precision</a></p></li>
+
+<li><p>seed [ default=0 ]</p>
+
+<ul>
+<li>随机数的种子。<code>缺省值为0</code></li>
+<li>可以用于产生可重复的结果（每次取一样的seed即可得到相同的随机划分）</li>
+</ul></li>
+</ul>
+
+<h3 id="3-2-xgboost实战">3.2 xgboost实战</h3>
+
+<p>xgboost有两大类接口，原生接口和scikit learn接口，这里只介绍基于sklearn的接口的使用</p>
+
+<p>由于是使用的scikitlearn的接口，某些参数的名称会有所区别</p>
+
+<p>并且xgboost可以实现分类和回归任务</p>
+
+<h4 id="1-分类">1. 分类</h4>
+
+<pre><code class="language-python">from xgboost.sklearn import XGBClassifier
+</code></pre>
+
+<pre><code class="language-python">clf = XGBClassifier(
+  silent=0, # 设置成1则没有运行信息输出，最好是设置为0，是否在运行时打印消息
+  # nthread = 4 # CPU 线程数 默认最大
+  learning_rate=0.3 , # 如同学习率
+  min_child_weight = 1,
+  # 这个参数默认为1，是每个叶子里面h的和至少是多少，对正负样本不均衡时的0-1分类而言
+  # 假设h在0.01附近，min_child_weight为1 意味着叶子节点中最少需要包含100个样本
+  # 这个参数非常影响结果，控制叶子节点中二阶导的和的最小值，该参数值越小，越容易过拟合
+  max_depth=6, # 构建树的深度，越大越容易过拟合
+  gamma = 0,# 树的叶子节点上做进一步分区所需的最小损失减少，越大越保守，一般0.1 0.2这样子
+  subsample=1, # 随机采样训练样本，训练实例的子采样比
+  # max_delta_step=0, # 最大增量步长，我们允许每个树的权重估计
+  colsample_bytree=1, # 生成树时进行的列采样
+  reg_lambda=1, #控制模型复杂度的权重值的L2正则化项参数，参数越大，模型越不容易过拟合
+  # reg_alpha=0, # L1正则项参数
+  # scale_pos_weight =1 # 如果取值大于0的话，在类别样本不平衡的情况下有助于快速收敛，平衡正负权重
+  # objective = 'multi:softmax', # 多分类问题，指定学习任务和响应的学习目标
+  # num_class = 10, # 类别数，多分类与multisoftmax并用
+  n_estimators=100, # 树的个数
+  seed = 1000, # 随机种子
+  # eval_metric ='auc'
+)
+</code></pre>
+
+<p><strong>鸢尾花数据集的xgboost分类实例</strong></p>
+
+<p>这是多分类问题，实例化</p>
+
+<pre><code class="language-python">from sklearn.datasets import load_iris
+import xgboost as xgb
+from xgboost import plot_importance
+from matplotlib import pyplot  as plt
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+</code></pre>
+
+<pre><code class="language-python"># 加载样本数据集
+iris = load_iris()
+X,y = iris.data,iris.target
+X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.2,random_state=12343)
+</code></pre>
+
+<pre><code class="language-python"># 训练模型
+model = xgb.XGBClassifier(max_depth=5,learning_rate=0.1,n_estimators=160,silent=True,objective= 'multi:softmax' )
+model.fit(X_train,y_train)
+</code></pre>
+
+<pre><code class="language-python"># 对测试集进行预测
+y_pred = model.predict(X_test)
+</code></pre>
+
+<pre><code class="language-python">#计算准确率
+accuracy = accuracy_score(y_test,y_pred)
+print( 'accuracy:%2.f%%' %(accuracy*100))
+</code></pre>
+
+<pre><code class="language-python"># 显示重要特征
+plot_importance(model)
+plt.show()
+</code></pre>
+
+<p><img src="https://raw.githubusercontent.com/tangg9646/my_github_image_bed/master/img20191208200742.png" alt="" /></p>
+
+<h4 id="2-回归">2. 回归</h4>
+
+<pre><code class="language-python">import xgboost as xgb
+from xgboost import plot_importance
+from matplotlib import pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.datasets import load_boston
+ 
+# 导入数据集
+boston = load_boston()
+X ,y = boston.data,boston.target
+ 
+# Xgboost训练过程
+X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.2,random_state=0)
+ 
+model = xgb.XGBRegressor(max_depth=5,learning_rate=0.1,n_estimators=160,silent=True,objective='reg:gamma')
+model.fit(X_train,y_train)
+ 
+# 对测试集进行预测
+ans = model.predict(X_test)
+ 
+# 显示重要特征
+plot_importance(model)
+plt.show()
+</code></pre>
+
+<p><img src="https://raw.githubusercontent.com/tangg9646/my_github_image_bed/master/img20191208200924.png" alt="" /></p>
+
+<h3 id="3-3-参数调优的一般方法">3.3 参数调优的一般方法</h3>
+
+<p><strong>调参步骤：</strong></p>
+
+<p>　　1，选择较高的学习速率（learning rate）。一般情况下，学习速率的值为0.1.但是，对于不同的问题，理想的学习速率有时候会在0.05~0.3之间波动。选择对应于此学习速率的理想决策树数量。Xgboost有一个很有用的函数“cv”，这个函数可以在每一次迭代中使用交叉验证，并返回理想的决策树数量。</p>
+
+<p>　　2，对于给定的学习速率和决策树数量，进行决策树特定参数调优（max_depth , min_child_weight , gamma , subsample,colsample_bytree）在确定一棵树的过程中，我们可以选择不同的参数。</p>
+
+<p>　　3，Xgboost的正则化参数的调优。（lambda , alpha）。这些参数可以降低模型的复杂度，从而提高模型的表现。</p>
+
+<p>　　4，降低学习速率，确定理想参数。</p>
+
+<p><strong>具体调参步骤请看接下来的这个实例</strong></p>
+
+<h1 id="二-xgboost实例-分类-调参">二、XGBOOST实例（分类+调参）</h1>
+
+<p>应用XGBoost做一个简单的二分类问题：</p>
+
+<p>用到的数据：<a href="https://github.com/tangg9646/file_share/blob/master/pima-indians-diabetes.csv">https://github.com/tangg9646/file_share/blob/master/pima-indians-diabetes.csv</a></p>
+
+<p>jupyter格式的文件一并上传在此仓库中</p>
+
+<p>预测待测样本是否会在5年内患糖尿病</p>
+
+<p>数据前8列为特征，最后一列为是否患糖尿病（0 1）</p>
+
+<h2 id="第一部分-默认的xgboost配置">第一部分：默认的xgboost配置</h2>
+
+<h3 id="1-导入必须的包">1.导入必须的包</h3>
+
+<pre><code class="language-python">import pandas as pd
+import numpy as np
+from numpy import loadtxt
+from xgboost import XGBClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+from sklearn.model_selection import cross_val_score
+</code></pre>
+
+<p>后续调参会用到这个函数来比较调参的效果</p>
+
+<pre><code class="language-python"># 查看训练出来的模型(完成fit 步骤之后)
+#在训练集  测试集  上的交叉验证成绩
+
+def cv_score_train_test(model):
+    num_cv = 5
+    score_list = [&quot;neg_log_loss&quot;,&quot;accuracy&quot;,&quot;f1&quot;, &quot;roc_auc&quot;]
+    train_scores = []
+    test_scores = []
+    for score in score_list:
+        train_scores.append(cross_val_score(model, X_train, y_train, cv=num_cv, scoring=score).mean())
+        test_scores.append(cross_val_score(model, X_test, y_test, cv=num_cv, scoring=score).mean())
+    scores = np.array((train_scores + test_scores)).reshape(2, -1)
+    scores_df = pd.DataFrame(scores, index=['Train', 'Test'], columns=score_list)
+    print(scores_df)
+</code></pre>
+
+<h3 id="2-数据基本处理">2. 数据基本处理</h3>
+
+<p>分出变量和标签</p>
+
+<pre><code class="language-python">dataset = loadtxt('pima-indians-diabetes.csv', delimiter=&quot;,&quot;)
+
+X = dataset[:,0:8] #左开右闭
+Y = dataset[:,8]
+</code></pre>
+
+<p>将数据分为训练集和测试集</p>
+
+<p>测试集用来预测，训练集用来学习模型</p>
+
+<pre><code class="language-python">seed = 7
+test_size = 0.33
+X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=test_size, random_state=seed)
+</code></pre>
+
+<h3 id="3-使用xgboost封转好的分类器">3. 使用XGBOOST封转好的分类器</h3>
+
+<p>全部使用默认参数</p>
+
+<p>直接用XGBClassifier 建立模型</p>
+
+<pre><code class="language-python">xgb_clf1 = XGBClassifier()
+xgb_clf1.fit(X_train, y_train)
+</code></pre>
+
+<pre><code>XGBClassifier(base_score=0.5, booster='gbtree', colsample_bylevel=1,
+       colsample_bynode=1, colsample_bytree=1, gamma=0, learning_rate=0.1,
+       max_delta_step=0, max_depth=3, min_child_weight=1, missing=None,
+       n_estimators=100, n_jobs=1, nthread=None,
+       objective='binary:logistic', random_state=0, reg_alpha=0,
+       reg_lambda=1, scale_pos_weight=1, seed=None, silent=None,
+       subsample=1, verbosity=1)
+</code></pre>
+
+<h3 id="4-进行预测">4. 进行预测</h3>
+
+<p>对测试集进行预测，并将预测的概率值，使用round函数转化为0 1 值</p>
+
+<pre><code class="language-python">cv_score_train_test(xgb_clf1)
+</code></pre>
+
+<pre><code>       neg_log_loss  accuracy        f1   roc_auc
+Train     -0.502422  0.756721  0.634669  0.818340
+Test      -0.646176  0.680615  0.536132  0.744753
+</code></pre>
+
+<p>不使用封装的函数，单独查看xgboost在测试集上的成绩</p>
+
+<pre><code class="language-python">y_probablity_pred = xgb_clf1.predict(X_test)
+y_predictions = [round(value) for value in y_probablity_pred]
+</code></pre>
+
+<p>查看在测试集上的预测精度</p>
+
+<pre><code class="language-python">accuracy = accuracy_score(y_test, y_predictions)
+print(&quot;Accuracy: %.2f%%&quot; % (accuracy * 100.0))
+</code></pre>
+
+<pre><code>Accuracy: 77.95%
+</code></pre>
+
+<h3 id="5-监控模型的表现">5. 监控模型的表现</h3>
+
+<p>xgboost 可以在模型训练时，评价模型在测试集上的表现，也可以输出每一步的分数</p>
+
+<p>但是需要指定测试集，early_stopping，评价指标</p>
+
+<pre><code class="language-python">xgb_clf2 = XGBClassifier(
+    learning_rate =0.01,
+    n_estimators=1000,
+    max_depth=5,
+    min_child_weight=1,
+    gamma=0,
+    subsample=0.8,
+    colsample_bytree=0.8,
+    objective= 'binary:logistic',
+    nthread=4,
+    scale_pos_weight=1,
+    seed=27
+)
+
+eval_set = [(X_test, y_test)]
+xgb_clf2.fit(
+    X_train, y_train,
+    early_stopping_rounds=50, 
+#     eval_metric=&quot;logloss&quot;, 
+    eval_metric=[&quot;auc&quot;, &quot;logloss&quot;], 
+    eval_set=eval_set, 
+    verbose=50)
+</code></pre>
+
+<pre><code class="language-python">[0]	validation_0-auc:0.716217	validation_0-logloss:0.690588
+Multiple eval metrics have been passed: 'validation_0-logloss' will be used for early stopping.
+
+Will train until validation_0-logloss hasn't improved in 50 rounds.
+[50]	validation_0-auc:0.833065	validation_0-logloss:0.584058
+[100]	validation_0-auc:0.833602	validation_0-logloss:0.532183
+[150]	validation_0-auc:0.835749	validation_0-logloss:0.505183
+[200]	validation_0-auc:0.832528	validation_0-logloss:0.492587
+[250]	validation_0-auc:0.832394	validation_0-logloss:0.485973
+[300]	validation_0-auc:0.830784	validation_0-logloss:0.484974
+Stopping. Best iteration:
+[282]	validation_0-auc:0.831119	validation_0-logloss:0.484596
+</code></pre>
+
+<pre><code class="language-python">XGBClassifier(base_score=0.5, booster='gbtree', colsample_bylevel=1,
+       colsample_bynode=1, colsample_bytree=0.8, gamma=0,
+       learning_rate=0.01, max_delta_step=0, max_depth=5,
+       min_child_weight=1, missing=None, n_estimators=1000, n_jobs=1,
+       nthread=4, objective='binary:logistic', random_state=0, reg_alpha=0,
+       reg_lambda=1, scale_pos_weight=1, seed=27, silent=None,
+       subsample=0.8, verbosity=1)
+</code></pre>
+
+<h3 id="6-查看特征的重要度">6. 查看特征的重要度</h3>
+
+<p>gradient boosting 还有一个优点是可以给出训练好的模型的特征重要性</p>
+
+<p><strong>需要引入XGBOOST中的两个类</strong></p>
+
+<pre><code class="language-python">from xgboost import plot_importance
+import matplotlib.pyplot as plt
+
+# 只需要在模型拟合fit完成之后加入
+plot_importance(xgb_clf2)
+plt.show()
+</code></pre>
+
+<p><img src="https://raw.githubusercontent.com/tangg9646/my_github_image_bed/master/img20191209173842.png" alt="" /></p>
+
+<h2 id="第二部分-xgboost参数调优">第二部分：XGBOOST参数调优</h2>
+
+<p><strong>XGBOOST参数调优</strong></p>
+
+<pre><code class="language-python">from sklearn.model_selection import GridSearchCV
+from sklearn.model_selection import StratifiedKFold
+</code></pre>
+
+<h3 id="1-学习率-估计器数目">1. 学习率，估计器数目</h3>
+
+<pre><code class="language-python">#搜索学习率和估计器数目
+#其他参数设置为默认值
+model1_1 = XGBClassifier(
+    max_depth=5,
+    min_child_weight=1,
+    gamma=0,
+    subsample=0.8,
+    colsample_bytree=0.8,
+    objective= 'binary:logistic',
+    nthread=4,
+    scale_pos_weight=1,
+    seed=27)
+
+#网格搜索参数列表
+learning_rate = [ 0.001, 0.01, 0.1, 0.2]
+n_estimators = [100, 200, 300, 500, 1000]
+param1 = dict(learning_rate=learning_rate, n_estimators=n_estimators)
+
+kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=7)
+
+#网格搜索类，要求的param_grid参数，必须是字典，或者字典构成的列表
+#scoring 参数根据实际情况设定，roc_auc 或者 neg_log_loss
+grid_search = GridSearchCV(model1_1, param_grid=param1, scoring=&quot;neg_log_loss&quot;, n_jobs=-1, cv=kfold, verbose=1)
+# grid_search = GridSearchCV(model1_1, param_grid=param1, scoring=&quot;roc_auc&quot;, n_jobs=-1, cv=kfold, verbose=1)
+grid_result = grid_search.fit(X_train, y_train)
+
+print(&quot;Best: %f using %s&quot; % (grid_result.best_score_, grid_result.best_params_))
+</code></pre>
+
+<pre><code>Best: -0.479729 using {'learning_rate': 0.01, 'n_estimators': 300}
+</code></pre>
+
+<p>设置学习率为上述搜索到的学习率的值，具体查看最优化的 估计其数目 是多少</p>
+
+<p>这一步也可以不要，直接使用上述的最好n_estimators</p>
+
+<pre><code class="language-python">model1_2 = XGBClassifier(
+    learning_rate =0.01,
+    n_estimators=400,
+    max_depth=5,
+    min_child_weight=1,
+    gamma=0,
+    subsample=0.8,
+    colsample_bytree=0.8,
+    objective= 'binary:logistic',
+    nthread=4,
+    scale_pos_weight=1,
+    seed=27
+)
+
+eval_set = [(X_test, y_test)]
+model1_2.fit(
+    X_train, y_train,
+    early_stopping_rounds=100, 
+    eval_metric=&quot;logloss&quot;, 
+#     eval_metric=&quot;auc&quot;, 
+    eval_set=eval_set, 
+    verbose=50)
+#verbose是指，每隔50个estimator才打印一次成绩
+</code></pre>
+
+<pre><code>[0] validation_0-logloss:0.690588
+Will train until validation_0-logloss hasn't improved in 100 rounds.
+[50]    validation_0-logloss:0.584058
+[100]   validation_0-logloss:0.532183
+[150]   validation_0-logloss:0.505183
+[200]   validation_0-logloss:0.492587
+[250]   validation_0-logloss:0.485973
+[300]   validation_0-logloss:0.484974
+[350]   validation_0-logloss:0.486333
+Stopping. Best iteration:
+[282]   validation_0-logloss:0.484596
+
+
+XGBClassifier(base_score=0.5, booster='gbtree', colsample_bylevel=1,
+       colsample_bynode=1, colsample_bytree=0.8, gamma=0,
+       learning_rate=0.01, max_delta_step=0, max_depth=5,
+       min_child_weight=1, missing=None, n_estimators=400, n_jobs=1,
+       nthread=4, objective='binary:logistic', random_state=0, reg_alpha=0,
+       reg_lambda=1, scale_pos_weight=1, seed=27, silent=None,
+       subsample=0.8, verbosity=1)
+</code></pre>
+
+<p>查看训练出来的模型</p>
+
+<p>在训练集  测试集  上的交叉验证成绩</p>
+
+<pre><code class="language-python">cv_score_train_test(model1_2)
+</code></pre>
+
+<pre><code>       neg_log_loss  accuracy        f1   roc_auc
+Train      -0.49006  0.764489  0.641571  0.819106
+Test       -0.55298  0.692769  0.550016  0.779069
+</code></pre>
+
+<p><strong>结论</strong></p>
+
+<ul>
+<li>最佳学习率 0.01</li>
+<li>估计其数目 300（282）</li>
+</ul>
+
+<p>**如果scoring参数设置为aoc， **</p>
+
+<p>那么n_estimator=50即可在测试集上获得比较好的成绩</p>
+
+<p><strong>如果scoring设置为neg_log_loss</strong></p>
+
+<p>那么需要设置n_estimator需要设置为300左右</p>
+
+<h3 id="2-max-depth-和-min-child-weight">2. max_depth 和 min_child_weight</h3>
+
+<pre><code class="language-python">#搜索学习率和估计器数目
+#其他参数设置为默认值
+model2 = XGBClassifier(
+    learning_rate=0.01,
+    n_estimators=300,
+    gamma=0,
+    subsample=0.8,
+    colsample_bytree=0.8,
+    objective= 'binary:logistic',
+    nthread=4,
+    scale_pos_weight=1,
+    seed=27)
+
+max_depth = [ i for i in range(1, 6)]
+min_child_weight = [i for i in range(4, 8)]
+param2 = dict(max_depth=max_depth, min_child_weight=min_child_weight)
+
+kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=7)
+
+#网格搜索类，要求的param_grid参数，必须是字典，或者字典构成的列表
+grid_search = GridSearchCV(model2, param_grid=param2, scoring=&quot;neg_log_loss&quot;, n_jobs=-1, cv=kfold, verbose=1)
+grid_result = grid_search.fit(X_train, y_train)
+
+print(&quot;Best: %f using %s&quot; % (grid_result.best_score_, grid_result.best_params_))
+</code></pre>
+
+<pre><code>Best: -0.471508 using {'max_depth': 3, 'min_child_weight': 5}
+</code></pre>
+
+<p>查看模型在训练集、测试集上的交叉验证成绩</p>
+
+<pre><code class="language-python">cv_score_train_test(grid_search.best_estimator_)
+</code></pre>
+
+<pre><code>       neg_log_loss  accuracy        f1   roc_auc
+Train     -0.475166  0.758758  0.614573  0.830570
+Test      -0.521323  0.751385  0.633099  0.803339
+</code></pre>
+
+<p><strong>结论：</strong></p>
+
+<ul>
+<li>&lsquo;max_depth&rsquo;: 3</li>
+<li>&lsquo;min_child_weight&rsquo;: 5</li>
+</ul>
+
+<h3 id="3-gamma参数调优">3. gamma参数调优</h3>
+
+<pre><code class="language-python">model3 = XGBClassifier(
+    learning_rate=0.01,
+    n_estimators=300,
+    max_depth=3,
+    min_child_weight=5,
+    subsample=0.8,
+    colsample_bytree=0.8,
+    objective= 'binary:logistic',
+    nthread=4,
+    scale_pos_weight=1,
+    seed=27)
+
+gamma = [ i/10.0 for i in range(5, 12)]
+param3 = dict(gamma=gamma)
+
+kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=7)
+
+#网格搜索类，要求的param_grid参数，必须是字典，或者字典构成的列表
+grid_search = GridSearchCV(model3, param_grid=param3, scoring=&quot;neg_log_loss&quot;, n_jobs=-1, cv=kfold, verbose=1)
+grid_result = grid_search.fit(X_train, y_train)
+
+print(&quot;Best: %f using %s&quot; % (grid_result.best_score_, grid_result.best_params_))
+</code></pre>
+
+<pre><code>Fitting 5 folds for each of 7 candidates, totalling 35 fits
+Best: -0.471190 using {'gamma': 0.7}
+</code></pre>
+
+<pre><code class="language-python"># 查看模型在训练集、测试集上的交叉验证成绩
+cv_score_train_test(grid_search.best_estimator_)
+</code></pre>
+
+<pre><code>       neg_log_loss  accuracy        f1   roc_auc
+Train     -0.475537  0.758758  0.614573  0.829718
+Test      -0.520716  0.747385  0.630400  0.803452
+</code></pre>
+
+<h3 id="4-subsample-和-colsample-bytree-参数">4.subsample 和 colsample_bytree 参数</h3>
+
+<pre><code class="language-python">model4 = XGBClassifier(
+    learning_rate=0.01,
+    n_estimators=300,
+    max_depth=4,
+    min_child_weight=4,
+    gamma=0.7,
+    objective= 'binary:logistic',
+    nthread=4,
+    scale_pos_weight=1,
+    seed=27)
+
+subsample = [ i/10.0 for i in range(6, 10)]
+colsample_bytree  =  [ i/10.0 for i in range(6, 10)]
+param4 = dict(subsample=subsample, colsample_bytree=colsample_bytree)
+
+kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=7)
+
+#网格搜索类，要求的param_grid参数，必须是字典，或者字典构成的列表
+grid_search = GridSearchCV(model4, param_grid=param4, scoring=&quot;neg_log_loss&quot;, n_jobs=-1, cv=kfold, verbose=1)
+grid_result = grid_search.fit(X, Y)
+
+print(&quot;Best: %f using %s&quot; % (grid_result.best_score_, grid_result.best_params_))
+</code></pre>
+
+<pre><code>Best: -0.473702 using {'colsample_bytree': 0.7, 'subsample': 0.8}
+</code></pre>
+
+<p>再次细化上述两个参数</p>
+
+<pre><code class="language-python">colsample_bytree  =  [ i/100.0 for i in range(65,90,5)]
+subsample = [ i/100.0 for i in range(55,95,5)]
+param4_2 = dict(subsample=subsample, colsample_bytree=colsample_bytree)
+
+grid_search = GridSearchCV(model4, param_grid=param4_2, scoring=&quot;neg_log_loss&quot;, n_jobs=-1, cv=kfold, verbose=1)
+grid_result = grid_search.fit(X, Y)
+
+print(&quot;Best: %f using %s&quot; % (grid_result.best_score_, grid_result.best_params_))
+</code></pre>
+
+<pre><code>Best: -0.473702 using {'colsample_bytree': 0.65, 'subsample': 0.8}
+</code></pre>
+
+<p><strong>结论</strong></p>
+
+<ul>
+<li>&lsquo;colsample_bytree&rsquo;: 0.65,</li>
+<li>&lsquo;subsample&rsquo;: 0.8</li>
+</ul>
+
+<h3 id="5-正则化参数调优">5. 正则化参数调优</h3>
+
+<pre><code class="language-python">model5 = XGBClassifier(
+    learning_rate=0.01,
+    n_estimators=300,
+    max_depth=4,
+    min_child_weight=4,
+    gamma=0.7,
+    subsample=0.8,
+    colsample_bytree=0.65,
+    objective= 'binary:logistic',
+    nthread=4,
+    scale_pos_weight=1,
+    seed=27)
+
+reg_alpha = [1e-5, 1e-2, 0.1, 1, 100]
+reg_lambda  =  [1e-5, 1e-2, 0.1, 1, 100]
+param5 = dict(reg_alpha=reg_alpha, reg_lambda=reg_lambda)
+
+kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=7)
+
+#网格搜索类，要求的param_grid参数，必须是字典，或者字典构成的列表
+grid_search = GridSearchCV(model5, param_grid=param5, scoring=&quot;neg_log_loss&quot;, n_jobs=-1, cv=kfold, verbose=1)
+grid_result = grid_search.fit(X, Y)
+
+print(&quot;Best: %f using %s&quot; % (grid_result.best_score_, grid_result.best_params_))
+</code></pre>
+
+<pre><code>Best: -0.473605 using {'reg_alpha': 0.01, 'reg_lambda': 1}
+</code></pre>
+
+<p>再次细化上述参数</p>
+
+<pre><code class="language-python">reg_alpha = [1e-3, 1e-2, 0.1]
+reg_lambda  =  [0.1, 1, 10]
+param5_2 = dict(reg_alpha=reg_alpha, reg_lambda=reg_lambda)
+
+grid_search = GridSearchCV(model5, param_grid=param5_2, scoring=&quot;neg_log_loss&quot;, n_jobs=-1, cv=kfold, verbose=1)
+grid_result = grid_search.fit(X, Y)
+
+print(&quot;Best: %f using %s&quot; % (grid_result.best_score_, grid_result.best_params_))
+</code></pre>
+
+<pre><code>Best: -0.473605 using {'reg_alpha': 0.01, 'reg_lambda': 1}
+</code></pre>
+
+<p><strong>结论：</strong></p>
+
+<ul>
+<li>&lsquo;reg_alpha&rsquo;: 0.01,</li>
+<li>&lsquo;reg_lambda&rsquo;: 1</li>
+</ul>
+
+<h3 id="6-再次降低学习速率">6. 再次降低学习速率</h3>
+
+<pre><code class="language-python">model6 = XGBClassifier(
+    n_estimators=300,
+    max_depth=4,
+    min_child_weight=4,
+    gamma=0.7,
+    subsample=0.8,
+    colsample_bytree=0.65,
+    reg_alpha=0.01,
+    reg_lambda=1,
+    objective= 'binary:logistic',
+    nthread=4,
+    scale_pos_weight=1,
+    seed=27)
+
+learning_rate = [0.001, 0.01, 0.1, 1]
+
+param6 = dict(learning_rate=learning_rate)
+
+kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=7)
+
+#网格搜索类，要求的param_grid参数，必须是字典，或者字典构成的列表
+grid_search = GridSearchCV(model6, param_grid=param6, scoring=&quot;neg_log_loss&quot;, n_jobs=-1, cv=kfold, verbose=1)
+grid_result = grid_search.fit(X, Y)
+
+print(&quot;Best: %f using %s&quot; % (grid_result.best_score_, grid_result.best_params_))
+</code></pre>
+
+<pre><code>Best: -0.473605 using {'learning_rate': 0.01}
+</code></pre>
+
+<p><strong>结论</strong>
+学习率=0.01确实是最好的</p>
+
+<h3 id="7-完成所有调参">7. 完成所有调参</h3>
+
+<pre><code class="language-python">cv_score_train_test(grid_search.best_estimator_)
+</code></pre>
+
+<pre><code>       neg_log_loss  accuracy        f1   roc_auc
+Train     -0.477979  0.756760  0.614948  0.827453
+Test      -0.519663  0.739538  0.605151  0.804260
+</code></pre>
+
+<p>xbg_clf1  model6 模型效果对比
+<img src="https://raw.githubusercontent.com/tangg9646/my_github_image_bed/master/img20191209171001.png" alt="" />
+<img src="https://raw.githubusercontent.com/tangg9646/my_github_image_bed/master/img20191209171026.png" alt="" /></p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>
